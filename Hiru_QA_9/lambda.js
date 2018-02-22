@@ -5,7 +5,7 @@ const sqs = new SL.AWS.SQS(AWS);
 exports.handler = function (event, context, callback) {
 
 	sqs.sendMessage({
-		MessageBody: 'this is a test message',
+		MessageBody: 'this is a test message from s3 trigger',
 		QueueUrl: 'https://sqs.us-east-1.amazonaws.com/480964559519/Hiru_test',
 		DelaySeconds: '0',
 		MessageAttributes: {
@@ -27,6 +27,8 @@ exports.handler = function (event, context, callback) {
 	}, function (error) {
 		console.log('error ',error);
 	});
+
+
 
 
 
