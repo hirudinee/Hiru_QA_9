@@ -1,4 +1,5 @@
 let AWS = require('aws-sdk');
+const s3 = new AWS.S3();
 let SL = require('@slappforge/slappforge-sdk');
 const sqs = new SL.AWS.SQS(AWS);
 exports.handler = function (event, context, callback) {
@@ -10,7 +11,7 @@ exports.handler = function (event, context, callback) {
 		MessageAttributes: {
 			"test": {
 				"DataType": "String",
-				"StringValue": "001"
+				"StringValue": "001123"
 			},
 			"test01": {
 				"DataType": "Number",
@@ -22,10 +23,11 @@ exports.handler = function (event, context, callback) {
 			}
 		}
 	}, function (data) {
-		// your logic (logging etc) to handle successful message delivery, should be here
+		console.log('successfull ',data);
 	}, function (error) {
-		// your logic (logging etc) to handle failures, should be here
+		console.log('error ',error);
 	});
+
 
 
 
